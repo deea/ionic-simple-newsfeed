@@ -7,7 +7,7 @@ import { ListPage } from '../pages/list/list';
 import { SignInPage } from '../pages/sign-in/sign-in';
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
@@ -23,7 +23,8 @@ export class MyApp {
     this.pages = [
       { title: 'List', component: ListPage },
       { title: 'Sign Out',
-      component: SignInPage }
+      component: SignInPage
+      }
     ];
 
   }

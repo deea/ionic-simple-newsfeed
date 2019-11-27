@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>item</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <img src="../../assets/imgs/rammstein-live-2016.jpg"/>
+  <h2>
+    {{person.name}}
+  </h2>
+  <div center>
+    <p>
+      Birth Year: {{person.birth_year}}
+    </p>
+    <p>
+      Gender: {{person.gender}}
+    </p>
+    <p>
+      Height: {{person.height}}
+    </p>
+    <p *ngIf="planet">
+      Homeworld: {{planet.name}}
+    </p>
+  </div>
+
+</ion-content>

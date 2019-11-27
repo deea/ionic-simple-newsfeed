@@ -1,23 +1,27 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>List</ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-start></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-end>
-        {{item.note}}
-      </div>
-    </button>
-  </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
-</ion-content>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>List</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-list>
+      <button ion-item *ngFor="let person of peopleData" (click)="personTapped($event, person)">
+        <ion-card>
+          <img src="../../assets/imgs/rammstein-live-2016.jpg"/>
+          <ion-card-content>
+            <ion-card-title>
+              <h3>{{person.name}}</h3>
+            </ion-card-title>
+            <p>
+              {{person.height}}
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </button>
+    </ion-list>
+  </ion-content>
+  

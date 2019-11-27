@@ -1,37 +1,30 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { ItemPage } from '../item/item';
+import { PeopleServiceProvider } from '../../providers/people-service/people-service';
 
 @Component({
   selector: 'page-list',
-  templateUrl: 'list.html'
+  templateUrl: 'list.html',
+  providers: [PeopleServiceProvider]
 })
 export class ListPage {
   selectedItem: any;
-  icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
+  peopleData: object[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public peopleService: PeopleServiceProvider) {
     // If we navigated to this page, we will have an item available as a nav param
-    this.selectedItem = navParams.get('item');
-
-    // Let's populate this page with some filler content for funzies
-    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-    'american-football', 'boat', 'bluetooth', 'build'];
-
-    this.items = [];
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+    peopleService.load()
+    .then(data => {
+      this.peopleData = data.results;
+    })
+    // this.selectedItem = navParams.get('item');
   }
 
-  itemTapped(event, item) {
+  personTapped(event, person) {
     // That's right, we're pushing to ourselves!
-    this.navCtrl.push(ListPage, {
-      item: item
+    this.navCtrl.push(ItemPage, {
+      person: person
     });
   }
 }
