@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content padding>
-  <img src="../../assets/imgs/rammstein-live-2016.jpg"/>
+  <img *ngIf="giphy" src={{giphy}}/>
   <h2>
     {{person.name}}
   </h2>

@@ -2,18 +2,19 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ItemPage } from '../item/item';
 import { PeopleServiceProvider } from '../../providers/people-service/people-service';
+import { GiphyServiceProvider } from '../../providers/giphy-service/giphy-service';
 
 @Component({
   selector: 'page-list',
   templateUrl: 'list.html',
-  providers: [PeopleServiceProvider]
+  providers: [PeopleServiceProvider, GiphyServiceProvider]
 })
 export class ListPage {
   selectedItem: any;
   peopleData: object[];
+  giphy: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public peopleService: PeopleServiceProvider) {
-    // If we navigated to this page, we will have an item available as a nav param
     peopleService.load()
     .then(data => {
       this.peopleData = data.results;
