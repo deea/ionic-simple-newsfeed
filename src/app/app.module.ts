@@ -10,8 +10,7 @@ import { ItemPage } from '../pages/item/item';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { PeopleServiceProvider } from '../providers/people-service/people-service';
-import { PlanetsServiceProvider } from '../providers/planets-service/planets-service';
+import { NewsServiceProvider } from '../providers/news-service/news-service';
 import { GiphyServiceProvider } from '../providers/giphy-service/giphy-service';
 
 @NgModule({
@@ -37,8 +36,7 @@ import { GiphyServiceProvider } from '../providers/giphy-service/giphy-service';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    PeopleServiceProvider,
-    PlanetsServiceProvider,
+    NewsServiceProvider,
     GiphyServiceProvider
   ]
 })

@@ -1,10 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import 'rxjs/add/operator/map';
 
 @Injectable()
-export class PeopleServiceProvider {
-  data: any;
+
+export class NewsServiceProvider {
+  data: object[];
+  
   constructor(public http: HttpClient) {
   }
 
@@ -14,16 +15,18 @@ export class PeopleServiceProvider {
     }
 
     let headers = new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'text/plain'
     });
     let opt = {
       headers: headers
     }
 
     return new Promise(resolve => {
-      this.http.get('https://swapi.co/api/people/', opt)
-        .subscribe(data => {
-          this.data = data;
+      this.http.get('https://newsapi.org/v2/top-headlines?' +
+      'country=us&' +
+      'apiKey=c7177247f9c84684880470b7565d7d24', opt)
+        .subscribe((data: { articles: object[] }) => {
+          this.data = data.articles;
           resolve(this.data);
         });
     });

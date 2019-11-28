@@ -6,6 +6,7 @@ import { ListPage } from '../list/list';
   selector: 'page-sign-in',
   templateUrl: 'sign-in.html'
 })
+
 export class SignInPage {
   constructor(public navCtrl: NavController) {
   }

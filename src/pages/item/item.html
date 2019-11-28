@@ -1,26 +1,25 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>item</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <img *ngIf="giphy" src={{giphy}}/>
   <h2>
-    {{person.name}}
+    {{news.title}}
   </h2>
-  <div center>
+  <div>
     <p>
-      Birth Year: {{person.birth_year}}
+      <i>{{news.description}}</i>
     </p>
     <p>
-      Gender: {{person.gender}}
+      {{news.content}}
     </p>
     <p>
-      Height: {{person.height}}
+      Author: {{news.author}}
     </p>
-    <p *ngIf="planet">
-      Homeworld: {{planet.name}}
+    <p>
+      Published: {{news.publishedAt}}
     </p>
   </div>
 

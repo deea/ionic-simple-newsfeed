@@ -1,27 +1,26 @@
 <ion-header>
-    <ion-navbar>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-      <ion-title>List</ion-title>
-    </ion-navbar>
-  </ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Latest news</ion-title>
+  </ion-navbar>
+</ion-header>
   
-  <ion-content>
-    <ion-list>
-      <button ion-item *ngFor="let person of peopleData" (click)="personTapped($event, person)">
-        <ion-card>
-          <img src="../../assets/imgs/rammstein-live-2016.jpg"/>
-          <ion-card-content>
-            <ion-card-title>
-              <h3>{{person.name}}</h3>
-            </ion-card-title>
-            <p>
-              {{person.height}}
-            </p>
-          </ion-card-content>
-        </ion-card>
-      </button>
-    </ion-list>
-  </ion-content>
-  
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let news of newsData" (click)="newsTapped($event, news)">
+      <ion-card>
+        <img src={{news.urlToImage}}/>
+        <ion-card-content>
+          <ion-card-title class="overflow">
+            <h3>{{news.title}}</h3>
+          </ion-card-title>
+          <p>
+            {{news.source.name}}
+          </p>
+        </ion-card-content>
+      </ion-card>
+    </button>
+  </ion-list>
+</ion-content>
