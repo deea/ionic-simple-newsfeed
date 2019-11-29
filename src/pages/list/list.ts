@@ -15,9 +15,7 @@ export class ListPage {
   newsData: NewsData;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public newsService: NewsServiceProvider, public giphyService: GiphyServiceProvider) {
-    newsService.load()
-    .then((data: NewsData) => {
-      console.log(data)
+    newsService.load().then((data: NewsData) => {
       this.newsData = data;
     })
   }

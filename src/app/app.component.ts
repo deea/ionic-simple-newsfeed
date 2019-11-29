@@ -18,10 +18,8 @@ export class MyApp {
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
     this.pages = [
-      { title: 'List', component: ListPage },
-      { title: 'Sign Out',
-      component: SignInPage
-      }
+      { title: 'Latest news', component: ListPage },
+      { title: 'Sign Out', component: SignInPage }
     ];
   }
 

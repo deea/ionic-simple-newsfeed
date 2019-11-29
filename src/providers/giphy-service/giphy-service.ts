@@ -5,11 +5,10 @@ import { Injectable } from '@angular/core';
 
 export class GiphyServiceProvider {
   data: any;
-  constructor(public http: HttpClient) {
-    console.log('Hello GiphyServiceProvider Provider');
-  }
 
-  load(q: string) {
+  constructor(public http: HttpClient) {}
+
+  search(q: string) {
     if (this.data) {
       return Promise.resolve(this.data);
     }

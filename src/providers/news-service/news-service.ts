@@ -5,8 +5,10 @@ import { Injectable } from '@angular/core';
 
 export class NewsServiceProvider {
   data: object[];
+  apiKey: string;
   
   constructor(public http: HttpClient) {
+    this.apiKey = 'c7177247f9c84684880470b7565d7d24';
   }
 
   load() {
@@ -22,10 +24,10 @@ export class NewsServiceProvider {
     }
 
     return new Promise(resolve => {
-      this.http.get('https://newsapi.org/v2/top-headlines?' +
-      'country=us&' +
-      'apiKey=c7177247f9c84684880470b7565d7d24', opt)
-        .subscribe((data: { articles: object[] }) => {
+      this.http.get(
+        `https://newsapi.org/v2/top-headlines?country=us&apiKey=${this.apiKey}`,
+        opt
+      ).subscribe((data: { articles: object[] }) => {
           this.data = data.articles;
           resolve(this.data);
         });

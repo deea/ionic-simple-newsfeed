@@ -13,9 +13,8 @@ export class ItemPage {
   giphy: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public giphyService: GiphyServiceProvider) {
-    console.log(navParams);
     this.news = navParams.data.news;
-    giphyService.load(this.news.title)
+    giphyService.search(this.news.title)
       .then(data => {
         this.giphy = data.data[0].images.downsized_large.url;
       });
